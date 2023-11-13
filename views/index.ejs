@@ -1,0 +1,91 @@
+<!--
+============================================
+; Title:  index.ejs
+; Author: Victor Soto
+; Date:   11/12/2023
+; Source: Images from https://unsplash.com/
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/site.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <title>Pets-R-Us</title>
+    </head>
+
+    <body>
+        <header class="app-header">
+            <nav>
+                <ul>
+                    <li><a href="/boarding">Boarding</a></li>
+                    <li><a href="/grooming">Grooming</a></li>
+                    <li><a href="/training">Training</a></li>
+                    <li><a href="/contact">Contact</a></li>
+
+                </ul>
+            </nav>
+            <h1>Welcome to Pets-R-Us!</h1>
+        </header>
+
+        <main class="card-content">
+            <div class="intro">
+                <p>We offer a variety of pets for adoption and sell a variety of pet-related products, supplies, services, and accessories. Our services extend beyond just providing pets and products. We also offer grooming services, ready to pamper your loving dogs and make them look their best. Our trained professionals are equipped to handle dogs of all breeds and sizes.</p>
+
+                <p>In addition to grooming, we offer training and boarding services, ensuring your pets are well-cared for and educated. We understand the busy schedules of our clients, so we’ve made booking appointments easy and flexible. You can book appointments online, over the phone, or in person at our stores. So, don’t wait! Come on now and let’s get started on providing the best care for your pets at Pets-R-Us. Your pet’s happiness is our priority.</p>
+            </div>
+
+
+            <section id="locations">
+                <h2>Locations</h2>
+                <p>We have two convenient locations in Salt Lake City and Provo. Each location is easily accessible and has ample parking.</p>
+            </section>
+
+            <section id="hours">
+                <h2>Location Hours</h2>
+                <p>Our stores are open from 9:00 AM to 7:00 PM from Monday to Saturday. On Sundays, we are open from 10:00 AM to 5:00 PM.</p>
+            </section>
+
+            <section id="dog-of-the-week">
+                <h2>Dog of the Week</h2>
+                <!-- Image by Karsten Winegeart from usnplash.com -->
+                <img src="/images/karsten-winegeart.jpg" alt="Picture of Luna">
+                <p>Meet Luna, our dog of the week! Luna is a friendly Yorkshire Terrier who loves to play fetch. She's looking for a loving home.</p>
+            </section>
+
+            <section id="testimonials">
+                <h2>Testimonials</h2>
+                <p>"Pets-R-Us is the best pet store in town. Their staff is knowledgeable and friendly." - Jane Dane</p>
+                <p>"I love Pets-R-Us! They always have the best selection of pet toys and treats." - John Erickson</p>
+                <p>"Pets-R-Us is my go-to for all my pet needs. Their grooming services are top-notch." - Susan Kao</p>
+            </section>
+
+            <section id="contact-us">
+                <h2>Contact Us</h2>
+                <form>
+                    <label for="name">Name:</label><br>
+                    <input type="text" id="name" name="name"><br>
+                    <label for="email">Email:</label><br>
+                    <input type="text" id="email" name="email"><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </section>
+        </main>
+
+        <footer class="app-footer">
+            <ul>
+                <li>
+                    <p>© 2023 Pets-R-Us</p>
+                </li>
+                <li>
+                    <p>Images courtesy of <a href="http://unsplash.com/">Unsplash</a></p>
+                </li>
+
+            </ul>
+        </footer>
+    </body>
+
+</html>

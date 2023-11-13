@@ -1,0 +1,226 @@
+/*
+============================================
+; Title:  site.css
+; Author: Victor Soto
+; Date: 11/12/2023
+; Source: w3schools - https://www.w3schools.com/css/css_examples.asp
+; Source: Images from https://unsplash.com/
+;===========================================
+*/
+
+body {
+    font-family: 'Oswald', sans-serif, ariel, helvetica;
+    font-size: 28px;
+    color: #2f1313;
+    /* Background Image for page. Image by Alvan Nee, from unsplash.com */
+    background-image: url('/images/alvan-nee.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.app-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.app-footer {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.app-footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.app-footer ul li {
+    margin-right: 60px;
+}
+
+.app-footer li a {
+    color: rgb(231, 104, 104);
+    text-decoration: none;
+    padding: 0 10px;
+}
+
+h1 {
+    padding-top: 40px;
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    background-image: url('/images/alvan-nee.jpg');
+    background-size: cover;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+nav li {
+    float: left;
+}
+
+nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background-color: #ae6427;
+}
+
+.card-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 20px;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.card-content section {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-content p {
+    color: #000;
+    /* Text color */
+}
+
+.btn {
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    width: 95%;
+    background-color: #8c6239;
+    color: #f9f3b9;
+}
+
+.intro {
+    /* Semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #8c6239;
+    width: 100%;
+
+    /* Centered */
+    margin: 0 auto;
+
+    /* Transition effect for border color */
+    transition: border-color 0.3s ease;
+
+    /*text color*/
+    color: #e5cd6c;
+
+    /* Prevent the border from resizing */
+    box-sizing: border-box;
+
+
+}
+
+
+.intro:hover {
+    box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.5);
+}
+
+section p {
+    color: white;
+}
+
+/* Styles for section titles */
+section h2 {
+    font-size: 32px;
+    color: #2f1313;
+    text-decoration: underline;
+}
+
+/* Styles for section text */
+section p {
+    font-size: 24px;
+    color: #2f1313;
+}
+
+/* Styles for dividers */
+section {
+    border-bottom: 1px solid #8c6239;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
+
+/* Styles for Contact Us form */
+#contact-us {
+    border: 2px solid #8c6239;
+    padding: 20px;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#contact-us label {
+    display: block;
+    margin-bottom: 2px;
+    text-align: left;
+}
+
+#contact-us input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #8c6239;
+}
+
+#contact-us input[type="submit"] {
+    background-color: #8c6239;
+    color: #f9f3b9;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+#contact-us input[type="submit"]:hover {
+    background-color: #e5cd6c;
+    color: #000000;
+}
+
+#contact-us:hover {
+    box-shadow: 0px 0px 10px #e5cd6c;
+}

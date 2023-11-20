@@ -2,7 +2,7 @@
 ============================================
 ; Title:  site.css
 ; Author: Victor Soto
-; Date: 11/12/2023
+; Date: 11/19/2023
 ; Source: CSS tutorial/review: w3schools - https://www.w3schools.com/css/css_examples.asp
 ; Source: Images from https://unsplash.com/
 ;===========================================
@@ -106,9 +106,7 @@ nav li a:hover {
 }
 
 .card-content section {
-    background-color: rgba(255, 255, 255, 0.5);
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
 
 .card-content p {
@@ -125,12 +123,12 @@ nav li a:hover {
     color: #f9f3b9;
 }
 
+.card-content:hover {
+    box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.5);
+}
+
 .intro {
-    /* Semi-transparent background */
-    background-color: rgba(255, 255, 255, 0.5);
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid #8c6239;
     width: 100%;
 
     /* Centered */
@@ -145,13 +143,8 @@ nav li a:hover {
     /* Prevent the border from resizing */
     box-sizing: border-box;
 
-
 }
 
-
-.intro:hover {
-    box-shadow: 0px 0px 50px rgba(255, 255, 255, 0.5);
-}
 
 section p {
     color: white;

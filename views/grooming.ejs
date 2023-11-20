@@ -2,8 +2,10 @@
 ============================================
 ; Title:  grooming.ejs
 ; Author: Victor Soto
-; Date:   11/12/2023
-; Source: Images from https://unsplash.com/
+; Date:   11/19/2023
+; Sources:
+Images from https://unsplash.com/
+https://github.com/buwebdev/web-340/tree/master
 ;===========================================
 -->
 <!DOCTYPE html>
@@ -19,34 +21,49 @@
     </head>
 
     <body>
-        <header class="app-header">
-            <h1>Welcome to Pets-R-Us Grooming Services!</h1>
-            <nav>
-                <ul>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/boarding">Boarding</a></li>
-                    <li><a href="/training">Training</a></li>
-                    <li><a href="/contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
+        <!-- header partial view -->
+        <%- include('_header') %>
 
-        <main class="card-content">
-            <h2>Grooming Services</h2>
-            <p>We offer a variety of grooming services for your pets. Our professional groomers are trained to care for all breeds of dogs. Contact us to schedule an appointment.</p>
-        </main>
+            <main class="card-content">
+                <h2>Grooming Services</h2>
+                <p>Welcome to Pets-R-Us Grooming Services! We believe that grooming is not just about maintaining your pet’s level of cleanliness, and it is not just about keeping your pet looking good. Grooming is about maintaining both your pet’s physical health as well as their appearance. To do this, we offer a range of grooming services, from basic grooming such as baths and nail trims, to more advanced services like haircuts and ear cleaning. </p>
+                <p>Our professional groomers are trained to handle all breeds and sizes of dogs. They know how to groom pets according to their breed and their type of coat. We use only high-quality, pet-safe products for all our grooming services. We understand that every pet is unique, and we will make every effort to keep your pet calm and comfortable during their grooming session. Contact us today to schedule an appointment and let us provide your pet with the best grooming experience!</p>
 
-        <footer class="app-footer">
-            <ul>
-                <li>
-                    <p>© 2023 Pets-R-Us</p>
-                </li>
-                <li>
-                    <p>Images courtesy of <a href="http://unsplash.com/">Unsplash</a></p>
-                </li>
+                <section id="pricing">
+                    <h2>Pricing</h2>
+                    <p>Our grooming services are priced to provide the best value for our customers. Here are our prices for grooming services:</p>
+                    <table>
+                        <tr>
+                            <th>Service</th>
+                            <th>Price</th>
+                        </tr>
+                        <tr>
+                            <td>Basic Grooming (Bath, Brush, Nail Trim)</td>
+                            <td>$50</td>
+                        </tr>
+                        <tr>
+                            <td>Full Grooming (Basic Grooming + Haircut)</td>
+                            <td>$80</td>
+                        </tr>
+                        <tr>
+                            <td>De-shedding Treatment</td>
+                            <td>$60</td>
+                        </tr>
+                        <tr>
+                            <td>Teeth Cleaning</td>
+                            <td>$30</td>
+                        </tr>
+                    </table>
+                    <p>Please note that these prices may vary depending on the size and breed of your pet. Contact us for more details or to make a reservation.</p>
+                </section>
 
-            </ul>
-        </footer>
+            </main>
+
+
+
+            <!-- footer partial view -->
+            <%- include('_footer') %>
+
     </body>
 
 </html>

@@ -1,0 +1,71 @@
+<!--
+============================================
+; Title:  boarding.ejs
+; Author: Victor Soto
+; Date:   11/19/2023
+; Source:
+Images from https://unsplash.com/
+https://github.com/buwebdev/web-340/tree/master
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/site.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <title>Pets-R-Us</title>
+        <link rel="stylesheet" href="/styles/site.css">
+    </head>
+
+    <body>
+
+        <!-- header partial view -->
+        <%- include('_header') %>
+
+            <main class="card-content">
+                <h2>Boarding Services</h2>
+                <p>We understand that leaving your pet can be a stressful experience for both you and your furry friend. That's why we strive to make our boarding services a home away from home for your pet. Our facilities are designed to provide your pet with a comfortable and safe environment, and our staff is trained to cater to your pet's every need.</p>
+
+                <p>Our boarding services include:</p>
+                <ul>
+                    <li>**Comfortable Accommodation**: Our spacious kennels are designed to make your pet feel at home. We provide comfortable bedding and plenty of room for your pet to move around.</li>
+                    <li>**Nutritious Meals**: We provide healthy, balanced meals for your pet. If your pet has specific dietary requirements, we can accommodate those as well.</li>
+                    <li>**Daily Exercise**: We ensure that your pet gets plenty of exercise. Our facilities include large outdoor play areas where your pet can run and play.</li>
+                    <li>**Medical Care**: If your pet requires any medical attention during their stay, our on-site veterinarian is available to provide care.</li>
+                </ul>
+                <section id="pricing">
+                    <h2>Pricing</h2>
+                    <p>Our boarding services are priced to provide the best value for our customers. Here are our prices for boarding services:</p>
+                    <table>
+                        <tr>
+                            <th></th>
+                            <th>1 Dog</th>
+                            <th>2 Dogs</th>
+                            <th>3 Dogs</th>
+                        </tr>
+                        <tr>
+                            <td>Up to 5 Nights</td>
+                            <td>$100</td>
+                            <td>$180</td>
+                            <td>$250</td>
+                        </tr>
+                        <tr>
+                            <td>Over 5 Nights</td>
+                            <td>$180</td>
+                            <td>$320</td>
+                            <td>$440</td>
+                        </tr>
+                    </table>
+                    <p>Contact us today to schedule your pet's stay at Pets-R-Us. We look forward to providing your pet with the best care possible!</p>
+                </section>
+            </main>
+
+            <!-- footer partial view -->
+            <%- include('_footer') %>
+
+    </body>
+
+</html>

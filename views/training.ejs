@@ -1,0 +1,71 @@
+<!--
+============================================
+; Title:  training.ejs
+; Author: Victor Soto
+; Date:   11/19/2023
+; Sources:
+Images from https://unsplash.com/
+https://github.com/buwebdev/web-340/tree/master
+;===========================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/styles/site.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <title>Pets-R-Us</title>
+        <link rel="stylesheet" href="/styles/site.css">
+    </head>
+
+    <body>
+        <!-- header partial view -->
+        
+        <%- include('_header') %>
+
+            <main class="card-content">
+                <h2>Training Services</h2>
+                At Pets-R-Us, we believe that a well-trained pet is a happy pet. Our professional trainers are experienced in handling pets of all breeds and sizes. They use positive reinforcement techniques to make training a fun and rewarding experience for your pet. Our training services include basic obedience training, behavior modification, and advanced training for specific tasks. <p>Whether you want to teach your pet basic commands, correct behavioral issues, or train them for specific tasks, our trainers can help. We also offer puppy training classes to help your new pet get off to a good start. We understand that every pet is unique, and we tailor our training methods to suit the individual needs and learning styles of each pet.</p>
+
+                <h2>Meet the Trainer</h2>
+                <img src="/images/trainer.jpg" alt="Image of Katie, the Trainer">
+                <p>Our trainer, Katie, is a certified professional with over 10 years of experience in dog training. She is passionate about helping dogs and their owners build a strong bond through effective communication and positive reinforcement techniques.</p>
+
+                <p>Contact us today to schedule a training session and let us help your pet reach their full potential!</p>
+
+                <h2>Pricing</h2>
+                <p>Our training services are tailored to the age and needs of your pet. Here are our prices:</p>
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Premier</th>
+                        <th>Premier Plus</th>
+                    </tr>
+                    <tr>
+                        <td>Puppies</td>
+                        <td>$120</td>
+                        <td>$200</td>
+                    </tr>
+                    <tr>
+                        <td>Adolescents</td>
+                        <td>$150</td>
+                        <td>$250</td>
+                    </tr>
+                    <tr>
+                        <td>Adults</td>
+                        <td>$175</td>
+                        <td>$300</td>
+                    </tr>
+                </table>
+                <p>Please note that these prices may vary depending on the specific needs of your pet. Contact us for more details or to make a reservation.</p>
+
+            </main>
+
+            <!-- footer partial view -->
+            <%- include('_footer') %>
+
+    </body>
+
+</html>

@@ -33,3 +33,7 @@ app.get('/boarding', function(req, res) {
 app.get('/training', function(req, res) {
     res.render('Training', { activePage: 'training' });
 });
+
+app.get('/register', function(req, res) {
+    res.render('register', { activePage: 'register' });
+});

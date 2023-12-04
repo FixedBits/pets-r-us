@@ -9,31 +9,83 @@
 const express = require('express');
 const app = express();
 
-// renders css file
-app.use(express.static('public'));
+const mongoose = require("mongoose");
 
-app.set('view engine', 'ejs');
+const Customer = require("./models/customer");
 
-app.get('/', function(req, res) {
-    res.render('index');
+
+const path = require("path");
+
+const CONN = 'mongodb+srv://web340_admin:thisismypassword@bellevueuniversity.wfnfbmb.mongodb.net/web340DB'; 
+
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+
+app.use(express.static(path.join(__dirname, "public")));
+
+app.use(express.urlencoded({ extended: true })); 
+app.use(express.json());
+
+const PORT = process.env.PORT || 3000;
+
+//Connect to MongoDB database
+mongoose
+  .connect(CONN)
+  .then(() => {
+    console.log(
+      "Connection to MongoDB database was successful\n  If you see this message it means you were able to connect to your MongoDB Atlas cluster"
+    );
+  })
+  .catch((err) => {
+    console.log("MongoDB Error: " + err.message);
+  });
+
+//Route to index page
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
-app.get('/grooming', function(req, res) {
-    res.render('grooming');
+//Route to grooming page
+app.get("/grooming", (req, res) => {
+  res.render("grooming");
 });
 
-app.listen(3000, function() {
-    console.log('App is listening on port 3000');
+//Route to boarding page
+app.get("/boarding", (req, res) => {
+  res.render("boarding", { activePage: 'boarding' });
 });
 
-app.get('/boarding', function(req, res) {
-    res.render('boarding', { activePage: 'boarding' });
+//Route to training page
+app.get("/training", (req, res) => {
+  res.render("Training", { activePage: 'training' });
 });
 
-app.get('/training', function(req, res) {
-    res.render('Training', { activePage: 'training' });
+//Route to registration page
+app.get("/register", (req, res) => {
+  res.render("register");
 });
 
-app.get('/register', function(req, res) {
-    res.render('register', { activePage: 'register' });
+//Handle post to registration page page
+app.post("/register", (req, res, next) => {
+  console.log("register");
+
+  const newCustomer = new Customer({
+    customerId: req.body.customerId,
+    email: req.body.email,
+  });
+
+  console.log(newCustomer);
+
+  Customer.create(newCustomer)
+    .then((result) => {
+      console.log(result);
+      res.render("index");
+    })
+    .catch((err) => {
+      console.log("Error : " + err);
+    });
+});
+
+app.listen(PORT, () => {
+  console.log("Application started and listening on PORT " + PORT);
 });

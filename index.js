@@ -3,7 +3,7 @@
 ; Title:  index.js
 ; Author: Victor Soto
 ; Date: 11/19/2023
-; Source: https://github.com/buwebdev/web-340/tree/master/week-4
+; Source: https://github.com/buwebdev/web-340/tree/master
 ;===========================================
 */
 const express = require('express');
@@ -33,7 +33,7 @@ mongoose
   .connect(CONN)
   .then(() => {
     console.log(
-      "Connection to MongoDB database was successful\n  If you see this message it means you were able to connect to your MongoDB Atlas cluster"
+      "Connection to MongoDB successful\n  You have successfully connected to your MongoDB Atlas cluster"
     );
   })
   .catch((err) => {
@@ -65,7 +65,7 @@ app.get("/register", (req, res) => {
   res.render("register");
 });
 
-//Handle post to registration page page
+//Register
 app.post("/register", (req, res, next) => {
   console.log("register");
 
@@ -84,6 +84,17 @@ app.post("/register", (req, res, next) => {
     .catch((err) => {
       console.log("Error : " + err);
     });
+});
+
+//Route to customer-list page
+app.get('/customer-list', async (req, res) => {
+  try {
+    const customers = await Customer.find({});
+    res.render('customer-list', { customers: customers });
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("An error occurred while retrieving customers.");
+  }
 });
 
 app.listen(PORT, () => {

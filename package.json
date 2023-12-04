@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+        "render-deploy": "ng build --configuration=production"
   },
   "repository": {
     "type": "git",

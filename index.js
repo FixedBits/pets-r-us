@@ -13,6 +13,8 @@ const mongoose = require("mongoose");
 
 const Customer = require("./models/customer");
 
+const Appointment = require("./models/appointment");
+
 
 const path = require("path");
 
@@ -86,6 +88,31 @@ app.post("/register", (req, res, next) => {
     });
 });
 
+const services = require('./public/data/services.json'); 
+
+//Route to appointment page
+app.get("/appointment", (req, res) => {
+  res.render("appointment", { services: services });
+});
+
+app.post("/appointment", (req, res) => {
+  const newAppointment = new Appointment({
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    service: req.body.service
+  });
+
+  newAppointment.save()
+    .then(() => {
+      res.redirect("/appointment");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).send("An error occurred while saving the appointment.");
+    });
+});
+
 //Route to customer-list page
 app.get('/customer-list', async (req, res) => {
   try {
@@ -100,3 +127,4 @@ app.get('/customer-list', async (req, res) => {
 app.listen(PORT, () => {
   console.log("Application started and listening on PORT " + PORT);
 });
+

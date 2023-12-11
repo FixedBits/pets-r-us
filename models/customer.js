@@ -1,4 +1,3 @@
-
 /*
   Title: customer.js 
   Author: Professor Krasso
@@ -8,7 +7,6 @@
 
 "use strict";
 
-// Import
 const mongoose = require('mongoose');
 
 // schema

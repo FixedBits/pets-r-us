@@ -60,7 +60,7 @@ body {
 }
 
 h1 {
-    padding-top: 40px;
+    padding-top: 100px;
 }
 
 nav {
@@ -78,7 +78,6 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: flex-end;
-
 }
 
 nav li {
@@ -87,10 +86,13 @@ nav li {
 
 nav li a {
     display: block;
-    color: white;
+    color: #572323;
     text-align: center;
-    padding: 14px 16px;
+    padding: 25px 18px;
     text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 3px 2px rgb(255, 255, 255);
+    border-radius: 5px;
 }
 
 nav li a:hover {
@@ -258,14 +260,14 @@ section {
     padding: 20px;
 }
 
-.center-text{
+.center-text {
     padding-left: 10px;
 }
 
-p{
+p {
     padding-left: 18px;
 }
 
-h2{
+h2 {
     padding-left: 8px;
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-        "render-deploy": "ng build --configuration=production"
+    "render-deploy": "ng build --configuration=production"
   },
   "repository": {
     "type": "git",
@@ -21,12 +21,12 @@
   "dependencies": {
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mongoose": "^8.0.1"
+    "mongoose": "^6.12.3"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
   },
-  "engines":{
+  "engines": {
     "node": "16.20.2",
     "npm": "8.19.4"
   }

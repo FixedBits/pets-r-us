@@ -7,16 +7,14 @@
 
 "use strict";
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-// schema
-const CustomerSchema = new mongoose.Schema({
-  customerId: { type: String, unique: true, required: true },
-  email: { type: String, unique: true, required: true }
+// schema with two fields: customerId and email
+let customerSchema = new Schema({
+  customerId: { type: String, required: true, unique: true },
+  email: { type: String, required: true, unique: true },
 });
 
-// Model
-const Customer = mongoose.model('Customer', CustomerSchema);
-
 // Export
-module.exports = Customer;
+module.exports = mongoose.model("Customer", customerSchema);

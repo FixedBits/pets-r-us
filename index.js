@@ -6,71 +6,64 @@
 ; Source: https://github.com/buwebdev/web-340/tree/master
 ;===========================================
 */
-const express = require('express');
-const app = express();
 
+// Import required modules
+const express = require('express');
 const mongoose = require("mongoose");
+const path = require("path");
+const fs = require("fs");
 
 const Customer = require("./models/customer");
-
 const Appointment = require("./models/appointment");
 
+// Define the MongoDB Atlas connection string
+const CONN = 'mongodb+srv://web340_admin:nopassword1@bellevueuniversity.heixdsl.mongodb.net/web340DB?retryWrites=true&w=majority'; 
 
-const path = require("path");
-
-const CONN = 'mongodb+srv://web340_admin:thisismypassword@bellevueuniversity.wfnfbmb.mongodb.net/web340DB'; 
-
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
-
-app.use(express.static(path.join(__dirname, "public")));
-
-app.use(express.urlencoded({ extended: true })); 
-app.use(express.json());
-
-const PORT = process.env.PORT || 3000;
-
-//Connect to MongoDB database
+// Connect to MongoDB database
 mongoose
   .connect(CONN)
   .then(() => {
     console.log(
-      "Connection to MongoDB successful\n  You have successfully connected to your MongoDB Atlas cluster"
+      "Connection to MongoDB was successful"
     );
   })
   .catch((err) => {
     console.log("MongoDB Error: " + err.message);
   });
 
-//Route to index page
+// Initialize Express
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Set up Express app
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.urlencoded({ extended: true })); 
+app.use(express.json());
+
+// Define routes
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-//Route to grooming page
 app.get("/grooming", (req, res) => {
   res.render("grooming");
 });
 
-//Route to boarding page
 app.get("/boarding", (req, res) => {
   res.render("boarding", { activePage: 'boarding' });
 });
 
-//Route to training page
 app.get("/training", (req, res) => {
   res.render("Training", { activePage: 'training' });
 });
 
-//Route to registration page
 app.get("/register", (req, res) => {
   res.render("register");
 });
 
-//Register
-app.post("/register", (req, res, next) => {
-  console.log("register");
-
+app.post("/register", (req, res) => {
   const newCustomer = new Customer({
     customerId: req.body.customerId,
     email: req.body.email,
@@ -79,8 +72,7 @@ app.post("/register", (req, res, next) => {
   console.log(newCustomer);
 
   Customer.create(newCustomer)
-    .then((result) => {
-      console.log(result);
+    .then((customer) => {
       res.render("index");
     })
     .catch((err) => {
@@ -90,13 +82,13 @@ app.post("/register", (req, res, next) => {
 
 const services = require('./public/data/services.json'); 
 
-//Route to appointment page
 app.get("/appointment", (req, res) => {
   res.render("appointment", { services: services });
 });
 
 app.post("/appointment", (req, res) => {
   const newAppointment = new Appointment({
+    customerId: req.body.customerId,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
@@ -105,7 +97,7 @@ app.post("/appointment", (req, res) => {
 
   newAppointment.save()
     .then(() => {
-      res.redirect("/appointment");
+      res.redirect("/");
     })
     .catch((err) => {
       console.log(err);
@@ -113,18 +105,39 @@ app.post("/appointment", (req, res) => {
     });
 });
 
-//Route to customer-list page
-app.get('/customer-list', async (req, res) => {
-  try {
-    const customers = await Customer.find({});
-    res.render('customer-list', { customers: customers });
-  } catch (err) {
-    console.log(err);
-    res.status(500).send("An error occurred while retrieving customers.");
-  }
+app.get("/customer-list", (req, res, next) => {
+  Customer.find({})
+    .then((customers) => {
+      res.render("customer-list", {
+        title: "Customer List",
+        pageTitle: "Pets-R-Us",
+        customersList: customers,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      next(err);
+    });
 });
 
+
+//Route to my appointments page
+app.get("/my-appointments", (req, res) => {
+  res.render("my-appointments");
+});
+
+app.get("/api/appointments/:email", (req, res, next) => {
+  Appointment.find({ email: req.params.email }, function (err, appointments) {
+    if (err) {
+      console.log(err);
+      return next(err);
+    } else {
+      res.json(appointments);
+    }
+  });
+});
+
+// Start the server
 app.listen(PORT, () => {
   console.log("Application started and listening on PORT " + PORT);
 });
-

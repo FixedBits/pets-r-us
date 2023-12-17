@@ -18,17 +18,17 @@ Source: https://github.com/buwebdev/web-340/tree/master
         <link rel="stylesheet" href="/styles/site.css">
     </head>
 
-<body>
-    <!-- Header Partial -->
-    <%- include('_header') %>
-        <section class="container">
-            <div>
-                <p>
-                    Customer List:
-                </p>
-                <br />
-            </div>
-        </section>
+    <body>
+        <!-- Header Partial -->
+        <%- include('_header') %>
+            <section class="container">
+                <div>
+                    <p>
+                        Customer List:
+                    </p>
+                    <br />
+                </div>
+            </section>
 
             <table class="table table-hover">
                 <thead>
@@ -38,17 +38,21 @@ Source: https://github.com/buwebdev/web-340/tree/master
                     </tr>
                 </thead>
                 <tbody>
-                    <% customers.forEach(customer => { %>
+                    <% customersList.forEach(customer=> { %>
                         <tr>
-                            <td><%= customer.customerId %></td>
-                            <td><%= customer.email %></td>
+                            <td>
+                                <%= customer.customerId %>
+                            </td>
+                            <td>
+                                <%= customer.email %>
+                            </td>
                         </tr>
-                    <% }) %>
+                        <% }) %>
                 </tbody>
             </table>
 
-        <!-- Footer Partial -->
-        <%- include('_footer') %>
-</body>
+            <!-- Footer Partial -->
+            <%- include('_footer') %>
+    </body>
 
 </html>

@@ -33,11 +33,18 @@
             <section class="container">
                 <div>
                     <form action="/register" method="post">
-                        <label for="name">Name:</label><br>
-                        <input type="text" id="name" name="name"><br>
-                        <label for="email">Email:</label><br>
-                        <input type="text" id="email" name="email"><br>
-                        <input type="submit" value="Register" class="btn btn-primary" />
+
+                        <div class="form-field">
+                            <label for="customerId">Customer ID:</label><br>
+                            <input class="input" type="text" id="customerId" name="customerId" required autofocus><br>
+                        </div>
+                        <div class="form-field">
+                            <label for="email">Email:</label><br>
+                            <input class="input" type="text" id="email" name="email" required><br>
+                        </div>
+                        <div class="form-field">
+                            <input type="submit" value="Sign Up" class="btn btn-primary full-width">
+                        </div>
                     </form>
                 </div>
             </section>

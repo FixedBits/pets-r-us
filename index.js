@@ -56,7 +56,7 @@ app.get("/boarding", (req, res) => {
 });
 
 app.get("/training", (req, res) => {
-  res.render("Training", { activePage: 'training' });
+  res.render("training", { activePage: 'training' });
 });
 
 app.get("/register", (req, res) => {

@@ -22,34 +22,36 @@ Source: https://github.com/buwebdev/web-340/tree/master
         <!-- Header Partial -->
         <%- include('_header') %>
             <section class="container">
-                <div>
-                    <p>
-                        Customer List:
-                    </p>
-                    <br />
-                </div>
+
+                <table class="table table-hover">
+                    <thead>
+
+                        <div>
+                            <h2>
+                                Customer List:
+                            </h2>
+                            <br />
+                        </div>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% customersList.forEach(customer=> { %>
+                            <tr>
+                                <td>
+                                    <%= customer.customerId %>
+                                </td>
+                                <td>
+                                    <%= customer.email %>
+                                </td>
+                            </tr>
+                            <% }) %>
+                    </tbody>
+                </table>
             </section>
 
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Customer ID</th>
-                        <th>Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% customersList.forEach(customer=> { %>
-                        <tr>
-                            <td>
-                                <%= customer.customerId %>
-                            </td>
-                            <td>
-                                <%= customer.email %>
-                            </td>
-                        </tr>
-                        <% }) %>
-                </tbody>
-            </table>
 
             <!-- Footer Partial -->
             <%- include('_footer') %>
